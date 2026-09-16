@@ -67,7 +67,7 @@ module StripMem
     end
 
     def ps(channel)
-      ps = `ps -o pid=,rss= -p #{processes.keys.join(',')}`.lines.each_with_object({}) { |line, h| pid, rss = line.split(/\s+/) ; h[pid.to_i] = rss.to_i }
+      ps = `ps -o pid=,rss= -p #{processes.keys.join(',')}`.lines.each_with_object({}) { |line, h| pid, rss = line.strip.split(/\s+/) ; h[pid.to_i] = rss.to_i }
       offset = Time.now - start_time
       channel.push :offset => offset, :samples => processes.map { |pid, name| { :name => "[#{pid}] #{name}", :rss => ps[pid] } }
     end
