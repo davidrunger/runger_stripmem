@@ -14,6 +14,7 @@ Gem::Specification.new do |s|
   )
   s.add_dependency 'em-websocket'
   s.add_dependency 'json'
+  s.add_dependency 'puma'
+  s.add_dependency 'rackup'
   s.add_dependency 'sinatra'
-  s.add_development_dependency 'debugger'
 end

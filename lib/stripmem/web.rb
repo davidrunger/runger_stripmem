@@ -8,11 +8,11 @@ module StripMem
 
     def run!
       puts "Starting a server on http://localhost:9999/"
-      App.run!(:port => 9999, :server => 'webrick') do
+      App.run!(:port => 9999, :server => 'puma') do
         system "open http://localhost:9999/"
       end
     end
-    
+
     class App < Sinatra::Base
       get '/' do
         erb :index
