@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -euo pipefail # exit on any error, don't allow undefined variables, pipes don't swallow errors
+
+lint secrets
+
+background-and-notify lint ascii
+background-and-notify lint newlines
+background-and-notify lint rubocop
