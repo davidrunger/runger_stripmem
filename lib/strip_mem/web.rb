@@ -9,7 +9,7 @@ class StripMem::Web
 
   def run!
     puts('Starting a server on http://localhost:9999/')
-    App.run!(port: 9999, server: 'puma') do
+    App.run!(port: 9999, server: 'puma', server_settings: { config_files: ['-'] }) do
       system('open http://localhost:9999/')
     end
   end
