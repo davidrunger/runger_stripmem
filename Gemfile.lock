@@ -118,6 +118,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  rake
   rubocop
   rubocop-performance
   runger_release_assistant
