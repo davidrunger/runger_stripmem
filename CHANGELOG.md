@@ -1,5 +1,5 @@
 ## Unreleased
-[no unreleased changes yet]
+- Explicitly define `StripMem` module to (hopefully really) fix "uninitialized constant StripMem" `NameError`.
 
 ## v0.1.2 (2026-09-23)
 - Fix "uninitialized constant StripMem" `NameError`.
