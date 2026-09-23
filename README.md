@@ -1,4 +1,4 @@
-# Stripmem
+# Runger Stripmem
 
 Show a live chart of your process's memory usage.
 
@@ -6,13 +6,21 @@ Show a live chart of your process's memory usage.
 
 ## Installation
 
-To use stripmem in an existing application, add it to your `Gemfile`:
+To use `runger_stripmem` standalone, install it:
+
+```
+gem install runger_stripmem
+```
+
+To use `runger_stripmem` in an existing application, add it to your `Gemfile`:
 
 ```rb
-gem 'stripmem', require: false, github: 'davidrunger/stripmem'
+gem 'runger_stripmem', require: false
 ```
 
 ## Usage
+
+Note: although the gem is named `runger_stripmem`, the executable is just `stripmem`.
 
 You can run this as a monitor of a new process and all processes spawned from it.
 
