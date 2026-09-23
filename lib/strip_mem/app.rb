@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require 'eventmachine'
 require 'English'
+require 'eventmachine'
 require 'strip_mem'
 
 if RUBY_VERSION.match?(/^1.8/)
@@ -39,7 +39,8 @@ class StripMem::App
       ]
       StripMem::WebSocket.new(channel).run!
       Thread.new do
-        StripMem::Web.new(channel).run! # This doesn't return until sinatra exits. (Sinatra handles SIGINT.)
+        # This doesn't return until sinatra exits. (Sinatra handles SIGINT.)
+        StripMem::Web.new(channel).run!
         kill!
         EM.stop
         exit
