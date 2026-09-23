@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
+require 'eventmachine'
 require 'English'
-require 'stripmem/web'
-require 'stripmem/websocket'
+require 'strip_mem'
 
 if RUBY_VERSION.match?(/^1.8/)
   module Enumerable
@@ -37,9 +37,9 @@ class StripMem::App
         EM::PeriodicTimer.new(0.2) { ps(channel) },
         EM::PeriodicTimer.new(1.0) { wait_child },
       ]
-      WebSocket.new(channel).run!
+      StripMem::WebSocket.new(channel).run!
       Thread.new do
-        Web.new(channel).run! # This doesn't return until sinatra exits. (Sinatra handles SIGINT.)
+        StripMem::Web.new(channel).run! # This doesn't return until sinatra exits. (Sinatra handles SIGINT.)
         kill!
         EM.stop
         exit
