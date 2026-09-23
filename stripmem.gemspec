@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require File.expand_path('lib/stripmem/version', File.dirname(__FILE__))
+require File.expand_path('lib/strip_mem/version', File.dirname(__FILE__))
 Gem::Specification.new do |spec|
   spec.name    = 'runger_stripmem'
   spec.version = StripMem::VERSION
@@ -18,6 +18,7 @@ Gem::Specification.new do |spec|
   ]
 
   spec.add_dependency('em-websocket', '>= 0.5.3')
+  spec.add_dependency('eventmachine', '>= 1.2.7')
   spec.add_dependency('json', '>= 3.0.2')
   spec.add_dependency('puma', '>= 8.0.2')
   spec.add_dependency('rackup', '>= 2.3.1')

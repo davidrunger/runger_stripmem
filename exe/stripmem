@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-require 'stripmem/app'
+require 'strip_mem/app'
 
 StripMem::App.run!(ARGV)

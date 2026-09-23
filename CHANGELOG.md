@@ -1,5 +1,5 @@
 ## Unreleased
-[no unreleased changes yet]
+- Fix "uninitialized constant StripMem" `NameError`.
 
 ## v0.1.1 (2026-09-23)
 - Release via RubyGems.
