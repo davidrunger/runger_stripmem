@@ -1,5 +1,5 @@
 ## Unreleased
-[no unreleased changes yet]
+- [index.erb] Bust cache via version query strings for asset requests.
 
 ## v1.0.0 (2026-09-23)
 - **BREAKING:** Include swap usage (not just RAM usage). This is a breaking change, because, due to how this functionality is implemented, `runger_stripmem` now only works on Linux.
