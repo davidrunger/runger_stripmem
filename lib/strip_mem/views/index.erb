@@ -2,10 +2,12 @@
 <html>
   <head>
     <title>Watch your memory grow!</title>
-    <link href="/app.css" type="text/css" rel="stylesheet" media="screen">
+    <%# We include a version query param to bust browser caches after gem updates. %>
+    <% version = StripMem::VERSION %>
+    <link href="/app.css?version=<%= version %>" type="text/css" rel="stylesheet" media="screen">
     <script src="/components/jquery/jquery.min.js" type="text/javascript"></script>
     <script src="/components/d3/d3.min.js" type="text/javascript"></script>
-    <script src="/app.js" type="text/javascript"></script>
+    <script src="/app.js?version=<%= version %>" type="text/javascript"></script>
   </head>
   <body data-websocket="ws://localhost:9998/ps">
     <div>
