@@ -82,15 +82,20 @@ class StripMem::App
 
   def ps(channel)
     ps =
-      `ps -o pid=,rss= -p #{processes.keys.join(',')}`.lines.each_with_object({}) do |line, h|
-        pid, rss = line.strip.split(/\s+/) ; h[Integer(pid, 10)] = Integer(rss, 10)
+      processes.keys.each_with_object({}) do |pid, h|
+        status = File.read("/proc/#{pid}/status")
+        anon  = Integer(status[/^RssAnon:\s+(\d+)/, 1], 10) # kB (preferred)
+        swap  = Integer(status[/^VmSwap:\s+(\d+)/, 1], 10) # kB
+        h[pid] = anon + swap
+      rescue Errno::ENOENT, Errno::EACCES
+        # process already gone or we lack permission
       end
+
     offset = Time.now - start_time
     channel.push(
       offset:,
-
       samples: processes.map do |pid, name|
-        { name: "[#{pid}] #{name}", rss: ps[pid] }
+        { name: "[#{pid}] #{name}", anon_plus_swap: ps[pid] }
       end,
     )
   end
