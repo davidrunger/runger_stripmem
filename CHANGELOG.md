@@ -1,4 +1,7 @@
 ## Unreleased
+[no unreleased changes yet]
+
+## v1.0.1 (2026-09-23)
 - [index.erb] Bust cache via version query strings for asset requests.
 
 ## v1.0.0 (2026-09-23)
